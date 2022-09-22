@@ -17,4 +17,7 @@ public interface UserRepository {
     @Select("select * from User where id = #{id}")
     Map<String, Object> findById(String id);
 
+    @Select("select pw from User where id = #{id}")
+    String pwCheck(String id);
+
 }
