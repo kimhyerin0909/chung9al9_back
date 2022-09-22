@@ -15,4 +15,8 @@ public class AuthService {
         System.out.println(enPw);
         user.setPw(enPw);
     }
+
+    public boolean encodePWForCheck(String cuPw, User user) {
+        return passwordEncoder.matches(user.getPw(), cuPw);
+    }
 }

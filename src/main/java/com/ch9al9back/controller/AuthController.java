@@ -13,7 +13,6 @@ import java.util.Map;
 public class AuthController {
     @Autowired
     private final UserRepository userRepository;
-
     @Autowired
     private JwtService jwtService;
     @Autowired
@@ -23,9 +22,8 @@ public class AuthController {
         this.userRepository = userRepository;
     }
 
-    @RequestMapping(value = "/join", method = RequestMethod.POST)
+    @RequestMapping("/join") // 회원가입
     public String Join(@RequestBody User user) throws Exception {
-        // 회원가입
         Map<String, Object> isUser = userRepository.findById(user.getId());
         if(isUser != null) return "이미 가입된 회원입니다.";
         else {
@@ -35,16 +33,12 @@ public class AuthController {
         }
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/login") // 로그인
     public String Login(@RequestBody User user) throws Exception {
-        // 로그인
         Map<String, Object> isUser = userRepository.findById(user.getId());
+        String pw = userRepository.pwCheck(user.getId());
         if(isUser == null) return "회원가입 필요";
+        else if(!authService.encodePWForCheck(pw, user)) return "비밀번호 틀림";
         else return jwtService.createJWT(user);
-    }
-
-    @RequestMapping("/pwtest")
-    public void PwTest(@RequestBody User user) throws Exception {
-        authService.encodePW(user);
     }
 }
