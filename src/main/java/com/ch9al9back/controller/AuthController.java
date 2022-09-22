@@ -25,7 +25,7 @@ public class AuthController {
     @RequestMapping("/join") // 회원가입
     public String Join(@RequestBody User user) throws Exception {
         Map<String, Object> isUser = userRepository.findById(user.getId());
-        if(isUser != null) return "이미 가입된 회원입니다.";
+        if(isUser != null) return "아이디 중복";
         else {
             authService.encodePW(user);
             userRepository.addUser(user);
