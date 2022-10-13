@@ -12,13 +12,16 @@ public class User {
     private String id;
     private String pw;
     private String nickname;
-//    private String hour;
-//    private int salary;
-    public User(int user_id, String id, String pw, String nickname) {
+    private double lat;
+    private double lon;
+
+    public User(int user_id, String id, String pw, String nickname, double lat, double lon) {
         this.user_id = user_id;
         this.id = id;
         this.pw = pw;
         this.nickname = nickname;
+        this.lat = lat;
+        this.lon = lon;
     }
 
 }

@@ -11,7 +11,7 @@ import java.util.Map;
 @Repository
 @Mapper
 public interface UserRepository {
-    @Insert("insert into User values (0, #{id}, #{pw}, #{nickname}, '0', 0)")
+    @Insert("insert into User values (0, #{id}, #{pw}, #{nickname}, '0', 0, #{lat}, #{lon})")
     void addUser(User user);
 
     @Select("select * from User where id = #{id}")
