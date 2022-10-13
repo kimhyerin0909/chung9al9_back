@@ -16,7 +16,9 @@ public class Enterpriser {
     private String captain;
     private String address;
     private String phone;
-    public Enterpriser(int en_id, String id, String pw, String en_num, String comp_name, String captain, String address, String phone) {
+    private double lat;
+    private double lon;
+    public Enterpriser(int en_id, String id, String pw, String en_num, String comp_name, String captain, String address, String phone, double lat, double lon) {
         this.en_id = en_id;
         this.id = id;
         this.pw = pw;
@@ -25,5 +27,7 @@ public class Enterpriser {
         this.captain = captain;
         this.address = address;
         this.phone = phone;
+        this.lat = lat;
+        this.lon = lon;
     }
 }

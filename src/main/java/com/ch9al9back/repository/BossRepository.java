@@ -11,7 +11,7 @@ import java.util.Map;
 @Repository
 @Mapper
 public interface BossRepository {
-    @Insert("insert into Enterpriser values (0, #{id}, #{pw}, #{en_num}, #{comp_name}, #{captain}, #{address}, #{phone})")
+    @Insert("insert into Enterpriser values (0, #{id}, #{pw}, #{en_num}, #{comp_name}, #{captain}, #{address}, #{phone}, #{lon}, #{lat})")
     void addBoss(Enterpriser enter);
     @Select("select * from Enterpriser where id = #{id}")
     Map<String, Object> findById(String id);
