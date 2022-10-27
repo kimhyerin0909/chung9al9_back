@@ -1,6 +1,7 @@
 package com.ch9al9back.repository;
 
 import com.ch9al9back.domain.JobPost;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -26,4 +27,7 @@ public interface JobPostRepository {
     @Select("select J.*, E.comp_name, E.captain, E.address, E.phone from JobPost J, Enterpriser E\n"+
             "where post_id = #{post_id} and J.comp_id = E.en_id;")
     JobPost findDetailById(long post_id);
+
+    @Delete("delete from JobPost where post_id = #{post_id}")
+    void deletePost(long post_id);
 }

@@ -24,8 +24,9 @@ public class JobPost {
     private String captain;
     private String address;
     private String phone;
+    private String description;
 
-    public JobPost(long post_id, long comp_id, String title, String write_time, String day, String time, String period, int salary_unit, int salary, int gender, int age, String priority, String comp_name, String captain, String address, String phone) {
+    public JobPost(long post_id, long comp_id, String title, String write_time, String day, String time, String period, int salary_unit, int salary, int gender, int age, String priority, String comp_name, String captain, String address, String phone, String description) {
         this.post_id = post_id;
         this.comp_id = comp_id;
         this.title = title;
@@ -42,5 +43,6 @@ public class JobPost {
         this.captain = captain;
         this.address = address;
         this.phone = phone;
+        this.description = description;
     }
 }

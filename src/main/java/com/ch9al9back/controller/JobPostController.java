@@ -29,4 +29,10 @@ public class JobPostController {
     public JobPost GetPostDetail(@RequestParam long post_id) throws Exception {
         return jobPostRepository.findDetailById(post_id);
     }
+
+    @RequestMapping(value = "/deletePost", method = RequestMethod.DELETE)
+    public String DeletePost(@RequestParam long post_id) throws Exception {
+        jobPostRepository.deletePost(post_id);
+        return "deleted";
+    }
 }
