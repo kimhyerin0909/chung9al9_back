@@ -20,8 +20,12 @@ public class JobPost {
     private int gender; // 1:무관 2:여자 3:남자
     private int age; // 1: 무관
     private String priority; // 우대조건
+    private String comp_name;
+    private String captain;
+    private String address;
+    private String phone;
 
-    public JobPost(long post_id, long comp_id, String title, String write_time, String day, String time, String period, int salary_unit, int salary, int gender, int age, String priority) {
+    public JobPost(long post_id, long comp_id, String title, String write_time, String day, String time, String period, int salary_unit, int salary, int gender, int age, String priority, String comp_name, String captain, String address, String phone) {
         this.post_id = post_id;
         this.comp_id = comp_id;
         this.title = title;
@@ -34,5 +38,9 @@ public class JobPost {
         this.gender = gender;
         this.age = age;
         this.priority = priority;
+        this.comp_name = comp_name;
+        this.captain = captain;
+        this.address = address;
+        this.phone = phone;
     }
 }

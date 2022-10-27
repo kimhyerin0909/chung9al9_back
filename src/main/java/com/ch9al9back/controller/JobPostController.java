@@ -10,7 +10,6 @@ import java.util.Map;
 @RestController
 public class JobPostController {
     private final JobPostRepository jobPostRepository;
-
     public JobPostController(JobPostRepository jobPostRepository) {
         this.jobPostRepository = jobPostRepository;
     }
@@ -22,7 +21,12 @@ public class JobPostController {
     }
 
     @RequestMapping(value = "/getPost", method = RequestMethod.GET)
-    public List<JobPost> GetPost(@RequestParam double lat, @RequestParam double lon) throws Exception {
-        return jobPostRepository.getPostByLatLon(lat, lon);
+    public List<JobPost> GetPost(@RequestParam double lat, @RequestParam double lon, @RequestParam int distance) throws Exception {
+        return jobPostRepository.getPostByLatLon(lat, lon, distance);
+    }
+
+    @RequestMapping(value = "/getPostDetail", method = RequestMethod.GET)
+    public JobPost GetPostDetail(@RequestParam long post_id) throws Exception {
+        return jobPostRepository.findDetailById(post_id);
     }
 }
