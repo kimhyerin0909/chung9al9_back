@@ -13,7 +13,7 @@ public interface DiaryRepository {
     void recordWork(Diary newRecord);
 
     @Select("select * from Record where user_id = #{user_id} and date=#{date}")
-    List<Diary> findByIdDate(long user_id, String date);
+    Diary findByIdDate(long user_id, String date);
 
     @Select("select * from Record where user_id = #{user_id} and MONTH(date) = #{month}")
     List<Diary> findById(long user_id, int month);
@@ -24,3 +24,5 @@ public interface DiaryRepository {
     @Delete("delete from Record where cal_id = #{cal_id}")
     void deleteRecord(long cal_id);
 }
+
+

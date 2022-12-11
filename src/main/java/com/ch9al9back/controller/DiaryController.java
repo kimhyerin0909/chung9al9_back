@@ -16,8 +16,8 @@ public class DiaryController {
 
     @RequestMapping("/record")
     public String RecordDiary(@RequestBody Diary newRecord) throws Exception {
-        List<Diary> originRecord = diaryRepository.findByIdDate(newRecord.getUser_id(), newRecord.getDate());
-        if(originRecord.isEmpty()) {
+        Diary originRecord = diaryRepository.findByIdDate(newRecord.getUser_id(), newRecord.getDate());
+        if(originRecord == null) {
             diaryRepository.recordWork(newRecord);
             return "success";
         } else {
@@ -41,4 +41,10 @@ public class DiaryController {
     public List<Diary> GetRecords(@RequestParam long user_id, @RequestParam int month) throws Exception {
         return diaryRepository.findById(user_id, month);
     }
+
+    @RequestMapping(value = "/getDateRecord", method = RequestMethod.GET)
+    public Diary GetRecordByDate(@RequestParam long user_id, @RequestParam String date) throws Exception {
+        return diaryRepository.findByIdDate(user_id, date);
+    }
+
 }
