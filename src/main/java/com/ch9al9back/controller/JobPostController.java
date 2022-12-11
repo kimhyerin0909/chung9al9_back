@@ -5,11 +5,11 @@ import com.ch9al9back.repository.JobPostRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class JobPostController {
     private final JobPostRepository jobPostRepository;
+
     public JobPostController(JobPostRepository jobPostRepository) {
         this.jobPostRepository = jobPostRepository;
     }
