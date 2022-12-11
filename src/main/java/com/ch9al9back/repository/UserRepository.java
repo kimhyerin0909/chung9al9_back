@@ -20,4 +20,6 @@ public interface UserRepository {
     @Select("select pw from User where id = #{id}")
     String pwCheck(String id);
 
+    @Select("select * from User where user_id = #{user_id}")
+    Map<String, Object> findByUserId(long user_id);
 }
