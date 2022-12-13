@@ -25,7 +25,7 @@ public class DiaryController {
         }
     }
 
-    @RequestMapping(value = "/fixRecord", method = RequestMethod.PUT)
+    @RequestMapping(value = "/fixRecord", method = RequestMethod.PATCH)
     public String FixRecord(@RequestParam long cal_id, @RequestParam String start_time, @RequestParam String end_time) throws Exception {
         diaryRepository.fixRecord(cal_id,start_time, end_time);
         return "updated";
