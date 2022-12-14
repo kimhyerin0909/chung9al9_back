@@ -4,6 +4,7 @@ import com.ch9al9back.domain.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
@@ -22,4 +23,7 @@ public interface UserRepository {
 
     @Select("select * from User where user_id = #{user_id}")
     Map<String, Object> findByUserId(long user_id);
+
+    @Update("update User set salary = #{salary}, hour = #{hour}, a_week = #{a_week} where user_id = #{user_id}")
+    void updateWorkInfo(int salary, int hour, long user_id, int a_week);
 }

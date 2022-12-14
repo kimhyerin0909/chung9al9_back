@@ -62,4 +62,11 @@ public class AuthController {
     public Map<String, Object> GetUserInfo(@RequestParam long user_id) throws Exception {
         return userRepository.findByUserId(user_id);
     }
+
+    @RequestMapping(value = "/updateWorkInfo", method = RequestMethod.PATCH)
+    public String UpdateWorkInfo(@RequestParam long user_id, @RequestParam int salary, @RequestParam int hour, @RequestParam int a_week) throws Exception {
+        userRepository.updateWorkInfo(salary, hour, user_id, a_week);
+        return "success";
+    }
+
 }
